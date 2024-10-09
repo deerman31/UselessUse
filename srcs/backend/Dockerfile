@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # 1. ビルドキャッシュの最適化: 依存関係が変更されていない場合、次のステップがキャッシュされる
 # 2. ビルド時間の短縮: ソースコードのみの変更の場合、依存関係のダウンロードをスキップできる
 # 3. 問題の特定が容易: 依存関係の解決とソースコードのビルドを分離
-COPY ./src/go.mod ./src/go.sum ./
+COPY ./api_server/go.mod ./api_server/go.sum ./
 
 # 依存関係をダウンロード
 # このステップは、go.modとgo.sumが変更されていない場合、キャッシュされる
@@ -27,7 +27,7 @@ RUN go mod download
 # 注意: 前のステップで既にgo.modとgo.sumをコピーしているが、
 # これは意図的な重複です。この方法により、ソースコードの変更のみの場合に
 # 依存関係のダウンロードをスキップしてビルド時間を短縮できます
-COPY ./src/ .
+COPY ./api_server/ .
 
 # アプリケーションをビルド
 # CGO_ENABLED=0: 静的リンクのバイナリを生成し、外部依存を減らす

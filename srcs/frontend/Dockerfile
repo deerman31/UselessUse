@@ -10,14 +10,14 @@ WORKDIR /app
 
 # アプリケーションの依存関係をコピー
 # deps.tsは通常、プロジェクトの依存関係を管理するために使用されます。
-COPY ./src/deps.ts .
+COPY ./fresh/deps.ts .
 
 # deps.ts に記載された依存関係をキャッシュします。
 # これにより、後続のビルドや実行が高速化されます。
 RUN deno cache deps.ts
 
 # アプリケーションのソースコードをコピー
-COPY ./src/ .
+COPY ./fresh/ .
 
 # アプリケーションをビルド
 # Freshプロジェクトのビルドタスクを実行します。

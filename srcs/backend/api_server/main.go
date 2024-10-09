@@ -5,8 +5,6 @@ import (
 	"os"
 )
 
-
-
 func main() {
 	router := routing.NewRouter()
 
