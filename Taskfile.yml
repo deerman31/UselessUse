@@ -72,13 +72,13 @@ tasks:
   
   fmt:
     cmds:
-     - cd ./srcs/backend/src && go fmt ./...
-     - deno fmt ./srcs/frontend/src
+     - cd ./srcs/backend/api_server && go fmt ./...
+     - deno fmt ./srcs/frontend/fresh
   
   lint:
     cmds:
-      - cd ./srcs/backend/src && go vet ./...
-      - deno lint --fix ./srcs/frontend/src
+      - cd ./srcs/backend/api_server && go vet ./...
+      - deno lint --fix ./srcs/frontend/fresh
 
   default:
     cmds:
